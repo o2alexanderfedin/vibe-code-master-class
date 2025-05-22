@@ -1,23 +1,23 @@
-# Vibe Coding Master Class
+# ✨ Vibe Coding Master Class ✨
 
 Materials and resources for the Vibe Coding Master Class, focused on establishing effective processes for AI-assisted development.
 
-## Instructor
+## 👨‍💼 Instructor
 
 **Alex Fedin**  
 CEO at O2.services, CTO at Nolock.social  
 [LinkedIn](https://linkedin.com/in/alex-fedin)
 
-## Overview
+## 🔍 Overview
 
 This repository contains resources for developing reliable and effective approaches to AI-assisted coding (vibe coding). The master class covers common challenges, solutions, and practical techniques to improve your AI-assisted development workflow.
 
-## Contents
+## 📚 Contents
 
-- [Master Class Plan](masterclass_plan.md) - Detailed outline of topics covered
-- Additional materials will be added as the master class develops
+- 📝 [Master Class Plan](masterclass_plan.md) - Detailed outline of topics covered
+- 🔮 Additional materials will be added as the master class develops
 
-## Getting Started
+## 🚀 Getting Started
 
 Clone this repository to access all materials:
 
@@ -26,6 +26,6 @@ git clone https://github.com/o2alexanderfedin/vibe-code-master-class.git
 cd vibe-code-master-class
 ```
 
-## License
+## 📄 License
 
 MIT
