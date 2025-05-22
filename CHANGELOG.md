@@ -8,8 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+## [0.2.0] - 2025-05-22
+
+### Added
 - Step-by-step Claude setup and environment configuration guide
 - Detailed Homebrew installation guide for macOS users
+
+### Fixed
+- Corrected Claude Code installation instructions with accurate npm commands
+- Added detailed npm configuration steps to avoid permission issues
 
 ## [0.1.0] - 2025-05-22
 
