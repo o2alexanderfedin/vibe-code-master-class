@@ -17,60 +17,91 @@ This guide walks you through the process of setting up Claude for efficient vibe
 
 Before configuring Claude for your development workflow, ensure you have:
 
-1. **An Anthropic API key or Claude Code access**
-   - Sign up at [anthropic.com](https://anthropic.com) or get Claude Code access
-   - Store your API key securely if using the API directly
+1. **An Anthropic Account with Claude Code access**
+   - Sign up for an Anthropic account at [anthropic.com](https://anthropic.com) 
+   - Subscribe to a Max plan for Claude Code access
 
-2. **A code repository setup**
+2. **System Requirements**
+   - macOS 10.15 or newer
+   - Ubuntu 20.04+ or Debian 10+
+   - Windows via WSL (Windows Subsystem for Linux)
+   - Node.js and npm installed
+
+3. **A code repository setup**
    - Preferably Git-based
    - Well-structured project
 
-3. **Basic knowledge of**:
+4. **Basic knowledge of**:
    - Your project's structure and codebase
    - Your development workflow
    - Basic prompt engineering concepts
 
 ## 🏗️ Basic Claude Configuration
 
-### Step 1: Choose Your Claude Access Method
+### Step 1: Install Claude Code CLI
 
-**Option A: Claude Code (CLI Tool)**
 ```bash
-# Install Claude Code CLI
-pip install anthropic-claude-code
+# Install Claude Code from npm (globally)
+npm install -g @anthropic-ai/claude-code
 
-# Set your API key (if required)
-export ANTHROPIC_API_KEY=your_api_key_here
+# If you encounter permission errors, set up a user-writable npm prefix
+mkdir -p ~/.npm-global
+npm config set prefix ~/.npm-global
+echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+npm install -g @anthropic-ai/claude-code
 ```
 
-**Option B: Web Interface**
+> ⚠️ **Important:** Do NOT use `sudo npm install -g` as this can lead to permission issues and security risks.
+
+### Step 2: Authentication
+
+Navigate to your project directory and run the `claude` command. You'll need to complete a one-time OAuth process with your Anthropic account:
+
+```bash
+cd your-project
+claude
+```
+
+### Step 3: Alternative Access Methods
+
+**Option A: Web Interface**
 - Use claude.ai with your browser
 - No local setup required, but fewer development-specific features
 
-**Option C: API Integration**
+**Option B: API Integration (if needed)**
 ```bash
 # Install Anthropic Python SDK
 pip install anthropic
 
-# Test connection
+# Use with your API key (from Anthropic Console)
+export ANTHROPIC_API_KEY=your_api_key_here
 python -c "from anthropic import Anthropic; client = Anthropic(); print('Connected!')"
 ```
 
-### Step 2: Configure Your Editor/IDE (Optional)
+### Step 4: Basic Usage
 
-For VS Code:
-1. Install relevant extensions:
-   - "Anthropic Claude" or similar AI assistant extensions
-   - "Claude Code Companion" if available
+Once installed, you can use Claude Code directly from your terminal:
 
-2. Configure settings in `settings.json`:
-```json
-{
-  "claude.apiKey": "${env:ANTHROPIC_API_KEY}",
-  "claude.maxContextLength": 100000,
-  "claude.defaultModel": "claude-3-opus-20240229"
-}
+```bash
+# Ask questions about your codebase
+claude "how does our authentication system work?"
+
+# Create a commit with one command
+claude commit
+
+# Fix issues across multiple files
+claude "fix the type errors in the auth module"
 ```
+
+### Step 5: Configure Your Editor/IDE (Optional)
+
+While Claude Code is primarily a CLI tool, you can enhance your experience with editor integrations:
+
+**For VS Code:**
+- Use the built-in terminal to run Claude Code commands
+- Configure keyboard shortcuts for common Claude interactions
+- Use VS Code's tasks feature to define common Claude workflows
 
 ## 📁 Project Structure Setup
 
@@ -344,14 +375,29 @@ chmod +x generate_docs.sh
 
 ## 🔍 Troubleshooting
 
-### Common Claude Issues
+### Common Claude Code Issues
+
+#### Installation Issues
+
+- **Problem**: Permission errors during installation
+- **Solution**: 
+  - Set up a user-writable npm prefix as shown in the installation section
+  - Never use sudo with npm install for Claude Code
+
+#### Windows/WSL Issues
+
+- **Problem**: `exec: node: not found` when running claude
+- **Solution**: 
+  - Your WSL environment may be using a Windows installation of Node.js
+  - Check with `which npm` and `which node` (should point to Linux paths starting with /usr/)
+  - Install Node via your Linux distribution's package manager or via nvm
 
 #### Context Length Exceeded
 - **Problem**: Claude returns errors about context length
 - **Solution**: 
   - Break down larger files into smaller chunks
-  - Use the `.claude/context_summary.md` file for background
-  - Use `claude-code --max-tokens-to-sample=4096` for larger responses
+  - Use the CLAUDE.md file for background context
+  - Be more specific in your prompts
 
 #### Inconsistent Code Generation
 - **Problem**: Claude generates code that doesn't match project conventions
@@ -359,21 +405,37 @@ chmod +x generate_docs.sh
   - Update your CLAUDE.md with more specific conventions
   - Provide example code snippets in your prompts
   - Use templates for common tasks
+  - Press Escape to interrupt Claude and redirect it
 
 #### Hallucinating Project Details
 - **Problem**: Claude makes incorrect assumptions about your project
 - **Solution**:
-  - Keep `.claude/context_summary.md` updated
+  - Ask Claude to make a plan before coding
   - Be explicit in your prompts about project structure
   - Correct Claude when it makes incorrect assumptions
+  - Double-tap Escape to jump back in history and edit previous prompts
 
-## 🚀 Next Steps
+## 🚀 Best Practices & Next Steps
 
-After setting up your Claude environment:
+After setting up Claude Code:
+
+### Best Practices
+
+1. **Active Collaboration**: While auto-accept mode (shift+tab to toggle) lets Claude work autonomously, you'll typically get better results by being an active collaborator.
+
+2. **Start with a Plan**: Ask Claude to make a plan before coding and explicitly tell it not to code until you've confirmed its plan looks good.
+
+3. **Course Correction**: Press Escape to interrupt Claude during any phase (thinking, tool calls, file edits), preserving context so you can redirect or expand instructions.
+
+4. **Explore Alternatives**: Double-tap Escape to jump back in history, edit a previous prompt, and explore a different direction.
+
+5. **Iterative Refinement**: Edit prompts and repeat until you get the result you're looking for.
+
+### Next Steps
 
 1. **Create task-specific templates** for your common development tasks
-2. **Integrate Claude into your CI/CD pipeline** for automated code reviews
-3. **Setup regular context updates** to keep Claude informed about project changes
+2. **Integrate Claude into your workflow** for routine coding tasks
+3. **Setup a CLAUDE.md file** to keep Claude informed about project structure
 4. **Train team members** on effective Claude prompting techniques
 5. **Document your Claude configuration** for team consistency
 
