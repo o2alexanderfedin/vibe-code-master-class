@@ -1,5 +1,15 @@
 # 🤖 CLAUDE.md
 
+## 🏷️ Versioning and Releases
+
+- Follow semantic versioning (MAJOR.MINOR.PATCH)
+- Update CHANGELOG.md with all notable changes
+- Tag releases on main branch only
+- Version numbers should reflect the significance of content changes:
+  - MAJOR: Significant content reorganization or approach changes
+  - MINOR: New content sections or examples
+  - PATCH: Content corrections or minor improvements
+
 ## Project-Specific Rules for Claude Code
 
 This file provides important context and rules for Claude when working with this repository.

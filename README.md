@@ -18,6 +18,7 @@ This repository contains resources for developing reliable and effective approac
 - 🔮 Additional materials will be added as the master class develops
 - 🤝 [Contributing Guidelines](CONTRIBUTING.md) - How to contribute to this project
 - 🤖 [CLAUDE.md](CLAUDE.md) - Rules for Claude Code when working with this repository
+- 📖 [Changelog](CHANGELOG.md) - Record of all notable changes
 
 ## 🚀 Getting Started
 

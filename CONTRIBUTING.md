@@ -1,5 +1,24 @@
 # 🤝 Contributing Guidelines
 
+## 🏷️ Versioning
+
+This project follows [Semantic Versioning](https://semver.org/) (SemVer):
+
+- **MAJOR version** (x.0.0): Incompatible content changes or complete reorganization
+- **MINOR version** (0.x.0): New content additions in a backward compatible manner
+- **PATCH version** (0.0.x): Backward compatible fixes, corrections, or minor content improvements
+
+### Version Workflow
+
+1. Each significant release should update the version number appropriately
+2. Version tags should be applied to the main branch only
+3. Use git tags to mark releases:
+   ```bash
+   git tag -a v1.0.0 -m "Release version 1.0.0"
+   git push origin --tags
+   ```
+4. Document changes in each version in CHANGELOG.md
+
 ## 📊 Git Workflow
 
 This project follows the GitFlow workflow for all changes:
@@ -40,11 +59,12 @@ This project follows the GitFlow workflow for all changes:
    git push origin develop
    ```
 
-5. For releases, merge develop into main
+5. For releases, merge develop into main and tag with version
    ```bash
    git checkout main
    git merge develop
-   git push origin main
+   git tag -a v1.0.0 -m "Release version 1.0.0"
+   git push origin main --tags
    ```
 
 ## 💬 Commit Message Format
