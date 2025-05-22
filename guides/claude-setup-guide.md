@@ -41,8 +41,33 @@ Before configuring Claude for your development workflow, ensure you have:
 ### Step 1: Install Node.js and npm (if not already installed)
 
 **For macOS:**
+
+1. First, install Homebrew if you don't have it already:
 ```bash
-# Using Homebrew (recommended)
+# Check if Homebrew is installed
+which brew
+
+# If not installed, install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# After installation, add Homebrew to your PATH if prompted
+# For Intel Macs:
+echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zshrc
+# For Apple Silicon Macs:
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+
+# Apply changes
+source ~/.zshrc
+
+# Verify Homebrew installation
+brew --version
+```
+
+> For a more detailed guide on installing Homebrew, see our [Homebrew Installation Guide](homebrew-installation.md).
+
+2. Then, install Node.js using Homebrew:
+```bash
+# Install Node.js (this will also install npm)
 brew install node
 
 # Verify installation
@@ -444,6 +469,22 @@ chmod +x generate_docs.sh
 ```
 
 ## 🔍 Troubleshooting
+
+### Homebrew Installation Issues
+
+- **Problem**: Homebrew installation script fails
+- **Solution**:
+  - Ensure you have Command Line Tools for Xcode installed: `xcode-select --install`
+  - Check your internet connection
+  - Try running the script with sudo if prompted
+
+- **Problem**: "Command not found: brew" after installation
+- **Solution**:
+  - Make sure the Homebrew path is in your PATH variable
+  - For Intel Macs: `eval "$(/usr/local/bin/brew shellenv)"`
+  - For Apple Silicon Macs: `eval "$(/opt/homebrew/bin/brew shellenv)"`
+  - Add the appropriate line to your shell profile (.zshrc or .bash_profile)
+  - Restart your terminal or run `source ~/.zshrc`
 
 ### Common Claude Code Issues
 
