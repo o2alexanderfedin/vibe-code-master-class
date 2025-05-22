@@ -34,7 +34,15 @@ CEO at O2.services, CTO at Nolock.social
 
 ## 5. 🔧 Processes and Approaches for Reliable Vibe Coding
 - 📜 Establishing clear project conventions and documentation
+- 📏 The crucial importance of rules and constraints for AI guidance
+  - CLAUDE.md and other metadata files as AI instruction sets
+  - Why constraints improve creativity and reliability
+  - Setting boundaries that enhance productivity
 - 💬 Effective prompting techniques and strategies
+  - Prompt design patterns that yield consistent results
+  - Prompt injection techniques for guiding next steps
+  - Hidden hints and signposts for AI navigation
+  - Maintaining control through structured conversation
 - ✅ Validation and quality control mechanisms
 - 🔄 Iterative development with AI assistance
 - 💾 Building knowledge persistence systems

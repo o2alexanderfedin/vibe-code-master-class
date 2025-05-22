@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Master class plan outline
 - Contributing guidelines with GitFlow workflow
 - CLAUDE.md with project-specific rules
+- Detailed sections on Rules and Constraints for AI
+- Prompt injection techniques for guided development
 
 ## [0.1.0] - 2025-05-22
 

@@ -15,7 +15,9 @@ This repository contains resources for developing reliable and effective approac
 ## 📚 Contents
 
 - 📝 [Master Class Plan](masterclass_plan.md) - Detailed outline of topics covered
-- 🔮 Additional materials will be added as the master class develops
+- 📚 Detailed Sections:
+  - 📏 [Rules and Constraints for AI](sections/rules-and-constraints.md) - How structure improves AI outputs
+  - 🎩 [Prompt Injection Techniques](sections/prompt-injection-techniques.md) - Guiding AI through subtle hints
 - 🤝 [Contributing Guidelines](CONTRIBUTING.md) - How to contribute to this project
 - 🤖 [CLAUDE.md](CLAUDE.md) - Rules for Claude Code when working with this repository
 - 📖 [Changelog](CHANGELOG.md) - Record of all notable changes
