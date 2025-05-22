@@ -1,0 +1,21 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+commit_msg=$(cat "$1")
+
+# Check for conventional commit format
+if ! echo "$commit_msg" | grep -qE '^(feat|fix|docs|style|refactor|test|chore)\([a-z-]+\): .+'; then
+  echo "❌ Error: Commit message format is incorrect"
+  echo "Commit message should follow the format: type(scope): description"
+  echo "Examples:"
+  echo "  feat(content): add new section on prompt engineering"
+  echo "  fix(examples): correct code in section 3"
+  echo "  docs(README): update requirements"
+  echo ""
+  echo "Types: feat, fix, docs, style, refactor, test, chore"
+  echo "Scopes: content, structure, examples, slides, docs, meta"
+  exit 1
+fi
+
+echo "✅ Commit message format is valid"
+exit 0

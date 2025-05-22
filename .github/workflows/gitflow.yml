@@ -1,0 +1,52 @@
+name: 🔀 GitFlow Enforcement
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches: [develop, main]
+
+jobs:
+  enforce-gitflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Validate branch naming
+        run: |
+          BRANCH_NAME="${GITHUB_HEAD_REF}"
+          echo "🔍 Checking branch name: $BRANCH_NAME"
+          
+          if [[ "$BRANCH_NAME" == "main" || "$BRANCH_NAME" == "develop" ]]; then
+            echo "✅ Branch is a main branch"
+            exit 0
+          fi
+          
+          if [[ "$BRANCH_NAME" =~ ^(feature|fix|docs|style|refactor|test)/[a-z0-9-]+$ ]]; then
+            echo "✅ Branch name follows GitFlow convention"
+          else
+            echo "❌ Branch name does not follow GitFlow convention"
+            echo "Branch names should follow the pattern: feature/name, fix/name, docs/name, etc."
+            exit 1
+          fi
+
+      - name: Validate commit messages
+        run: |
+          BASE_SHA=${{ github.event.pull_request.base.sha }}
+          HEAD_SHA=${{ github.event.pull_request.head.sha }}
+          
+          echo "🔍 Checking commit messages between $BASE_SHA and $HEAD_SHA"
+          
+          git log --pretty=format:"%s" $BASE_SHA..$HEAD_SHA | while read commit_msg; do
+            echo "Checking: $commit_msg"
+            
+            if [[ "$commit_msg" =~ ^(feat|fix|docs|style|refactor|test|chore)\([a-z-]+\):\ .+ ]]; then
+              echo "✅ Commit message follows conventional format"
+            else
+              echo "❌ Commit message does not follow conventional format"
+              echo "Commit messages should follow the pattern: type(scope): description"
+              exit 1
+            fi
+          done

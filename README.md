@@ -16,6 +16,7 @@ This repository contains resources for developing reliable and effective approac
 
 - 📝 [Master Class Plan](masterclass_plan.md) - Detailed outline of topics covered
 - 🔮 Additional materials will be added as the master class develops
+- 🤝 [Contributing Guidelines](CONTRIBUTING.md) - How to contribute to this project
 
 ## 🚀 Getting Started
 
