@@ -8,16 +8,42 @@ This project follows [Semantic Versioning](https://semver.org/) (SemVer):
 - **MINOR version** (0.x.0): New content additions in a backward compatible manner
 - **PATCH version** (0.0.x): Backward compatible fixes, corrections, or minor content improvements
 
-### Version Workflow
+### Release Process
 
-1. Each significant release should update the version number appropriately
-2. Version tags should be applied to the main branch only
-3. Use git tags to mark releases:
-   ```bash
-   git tag -a v1.0.0 -m "Release version 1.0.0"
-   git push origin --tags
-   ```
-4. Document changes in each version in CHANGELOG.md
+We use automated scripts to standardize our release process:
+
+#### 1. Prepare the Release
+
+```bash
+./scripts/prepare-release.sh 1.0.0
+```
+
+This creates a release branch and prepares version files. Then:
+
+1. Edit the generated release notes in `.github/releases/v1.0.0.md`
+2. Make any final adjustments to the release branch
+3. Commit any additional changes
+
+#### 2. Finalize the Release
+
+```bash
+./scripts/finalize-release.sh 1.0.0
+```
+
+This script will:
+
+1. Merge the release branch into main
+2. Create a version tag
+3. Merge changes back to develop
+4. Push all changes and delete the release branch
+
+#### 3. Create a GitHub Release
+
+Create a GitHub release using the content from `.github/releases/v1.0.0.md`.
+
+### Release Templates
+
+All releases should follow the template in `.github/RELEASE_TEMPLATE.md` to maintain consistency.
 
 ## 📊 Git Workflow
 

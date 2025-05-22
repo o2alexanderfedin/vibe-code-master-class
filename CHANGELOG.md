@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Detailed sections on Rules and Constraints for AI
 - Prompt injection techniques for guided development
 - GitHub CI/CD workflows for reliable vibe coding
+- Release process automation scripts
+- Release templates and standardized versioning
 
 ## [0.1.0] - 2025-05-22
 

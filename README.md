@@ -32,6 +32,20 @@ git clone https://github.com/o2alexanderfedin/vibe-code-master-class.git
 cd vibe-code-master-class
 ```
 
+### Working with Releases
+
+This project follows GitFlow with standardized release processes. For creating releases:
+
+```bash
+# Prepare a new release
+./scripts/prepare-release.sh 1.0.0
+
+# After making final adjustments, finalize the release
+./scripts/finalize-release.sh 1.0.0
+```
+
+See [Contributing Guidelines](CONTRIBUTING.md) for more details on the release process.
+
 ## 📄 License
 
 MIT

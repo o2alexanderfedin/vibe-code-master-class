@@ -9,6 +9,13 @@
   - MAJOR: Significant content reorganization or approach changes
   - MINOR: New content sections or examples
   - PATCH: Content corrections or minor improvements
+- Use the standard release scripts:
+  ```bash
+  ./scripts/prepare-release.sh <version>
+  ./scripts/finalize-release.sh <version>
+  ```
+- All releases must use the template in `.github/RELEASE_TEMPLATE.md`
+- Release notes should be detailed and highlight all significant changes
 
 ## Project-Specific Rules for Claude Code
 
