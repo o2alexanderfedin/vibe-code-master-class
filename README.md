@@ -19,6 +19,9 @@ This repository contains resources for developing reliable and effective approac
   - 📏 [Rules and Constraints for AI](sections/rules-and-constraints.md) - How structure improves AI outputs
   - 🎩 [Prompt Injection Techniques](sections/prompt-injection-techniques.md) - Guiding AI through subtle hints
   - 🔂 [GitHub CI/CD Workflows](sections/github-cicd-workflows.md) - Automated guardrails for AI-assisted development
+- 📥 Practical Guides:
+  - 🤖 [Claude Setup Guide](guides/claude-setup-guide.md) - Step-by-step environment configuration
+  - 🍺 [Homebrew Installation Guide](guides/homebrew-installation.md) - Detailed macOS package manager setup
 - 🤝 [Contributing Guidelines](CONTRIBUTING.md) - How to contribute to this project
 - 🤖 [CLAUDE.md](CLAUDE.md) - Rules for Claude Code when working with this repository
 - 📖 [Changelog](CHANGELOG.md) - Record of all notable changes
