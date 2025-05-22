@@ -1,5 +1,10 @@
 # Vibe Coding Master Class
 
+**Presented by:**  
+Alex Fedin  
+CEO at O2.services, CTO at Nolock.social  
+[LinkedIn](https://linkedin.com/in/alex-fedin)
+
 ## 1. Introduction
 - What is vibe coding and why it matters
 - The promise and appeal of AI-assisted coding
