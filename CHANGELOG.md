@@ -8,24 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Initial repository setup
-- Master class plan outline
-- Contributing guidelines with GitFlow workflow
-- CLAUDE.md with project-specific rules
-- Detailed sections on Rules and Constraints for AI
-- Prompt injection techniques for guided development
-- GitHub CI/CD workflows for reliable vibe coding
-- Release process automation scripts
-- Release templates and standardized versioning
 
 ## [0.1.0] - 2025-05-22
 
 ### Added
-- Initial project structure
-- Basic master class outline with sections:
-  - Introduction
-  - Common vibe coding problems
-  - Analogies with human development
-  - Problem-solving approaches
-  - Processes for reliable vibe coding
-  - Q&A session framework
+- Initial repository setup
+- Master class plan outline with comprehensive sections
+- Contributing guidelines with GitFlow workflow
+- CLAUDE.md with project-specific rules
+- Detailed educational sections:
+  - Rules and Constraints for AI guidance
+  - Prompt injection techniques for guided development
+  - GitHub CI/CD workflows for reliable vibe coding
+- Release process automation scripts
+- Release templates and standardized versioning
+- GitFlow implementation with branch structure
