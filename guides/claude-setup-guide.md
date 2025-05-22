@@ -25,7 +25,7 @@ Before configuring Claude for your development workflow, ensure you have:
    - macOS 10.15 or newer
    - Ubuntu 20.04+ or Debian 10+
    - Windows via WSL (Windows Subsystem for Linux)
-   - Node.js and npm installed
+   - Node.js 16+ and npm installed
 
 3. **A code repository setup**
    - Preferably Git-based
@@ -38,23 +38,74 @@ Before configuring Claude for your development workflow, ensure you have:
 
 ## 🏗️ Basic Claude Configuration
 
-### Step 1: Install Claude Code CLI
+### Step 1: Install Node.js and npm (if not already installed)
+
+**For macOS:**
+```bash
+# Using Homebrew (recommended)
+brew install node
+
+# Verify installation
+node --version  # Should show v16.x.x or higher
+npm --version   # Should show 8.x.x or higher
+```
+
+**For Ubuntu/Debian:**
+```bash
+# Install from NodeSource repository (for latest version)
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Verify installation
+node --version
+npm --version
+```
+
+**For Windows (WSL):**
+```bash
+# Install NVM (Node Version Manager) for easier management
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+# Restart your terminal or source your profile
+source ~/.bashrc
+
+# Install and use Node.js 16 or later
+nvm install 16
+nvm use 16
+
+# Verify installation
+node --version
+npm --version
+```
+
+### Step 2: Configure npm for User-Level Global Packages
+
+To avoid permission issues, configure npm to use a directory in your user's home:
+
+```bash
+# Create a directory for global packages
+mkdir -p ~/.npm-global
+
+# Configure npm to use the new directory path
+npm config set prefix ~/.npm-global
+
+# Add the directory to your PATH
+echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
+
+# Apply the changes
+source ~/.bashrc
+```
+
+### Step 3: Install Claude Code CLI
 
 ```bash
 # Install Claude Code from npm (globally)
-npm install -g @anthropic-ai/claude-code
-
-# If you encounter permission errors, set up a user-writable npm prefix
-mkdir -p ~/.npm-global
-npm config set prefix ~/.npm-global
-echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
-source ~/.bashrc
 npm install -g @anthropic-ai/claude-code
 ```
 
 > ⚠️ **Important:** Do NOT use `sudo npm install -g` as this can lead to permission issues and security risks.
 
-### Step 2: Authentication
+### Step 4: Authentication
 
 Navigate to your project directory and run the `claude` command. You'll need to complete a one-time OAuth process with your Anthropic account:
 
@@ -63,7 +114,26 @@ cd your-project
 claude
 ```
 
-### Step 3: Alternative Access Methods
+You'll see a message like:
+```
+To use Claude Code, you need to connect your Anthropic account.
+Please visit the following URL to authenticate:
+https://console.anthropic.com/auth/cli/...
+```
+
+Follow the link to complete authentication in your browser. This will connect Claude Code to your Anthropic account with the appropriate permissions.
+
+### Step 5: Verify Installation
+
+```bash
+# Check that Claude Code is properly installed
+claude --version
+
+# See available commands and options
+claude --help
+```
+
+### Step 6: Alternative Access Methods
 
 **Option A: Web Interface**
 - Use claude.ai with your browser
@@ -79,7 +149,7 @@ export ANTHROPIC_API_KEY=your_api_key_here
 python -c "from anthropic import Anthropic; client = Anthropic(); print('Connected!')"
 ```
 
-### Step 4: Basic Usage
+### Step 7: Basic Usage
 
 Once installed, you can use Claude Code directly from your terminal:
 
@@ -94,7 +164,7 @@ claude commit
 claude "fix the type errors in the auth module"
 ```
 
-### Step 5: Configure Your Editor/IDE (Optional)
+### Step 8: Configure Your Editor/IDE (Optional)
 
 While Claude Code is primarily a CLI tool, you can enhance your experience with editor integrations:
 
@@ -383,6 +453,16 @@ chmod +x generate_docs.sh
 - **Solution**: 
   - Set up a user-writable npm prefix as shown in the installation section
   - Never use sudo with npm install for Claude Code
+  - If you see EACCES errors, follow the npm prefix setup in Step 2
+
+#### Node.js Version Issues
+
+- **Problem**: Errors about incompatible Node.js version
+- **Solution**:
+  - Check your Node.js version with `node --version`
+  - Ensure you have Node.js 16 or later installed
+  - If using nvm: `nvm install 16 && nvm use 16`
+  - If using system package manager, update Node.js to a newer version
 
 #### Windows/WSL Issues
 
