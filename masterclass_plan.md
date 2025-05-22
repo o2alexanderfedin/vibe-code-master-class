@@ -47,6 +47,11 @@ CEO at O2.services, CTO at Nolock.social
 - 🔄 Iterative development with AI assistance
 - 💾 Building knowledge persistence systems
 - 🔧 Tools and frameworks that enhance AI coding capabilities
+- 🔂 Automated workflows with GitHub CI/CD
+  - Enforcing standards for AI-generated code
+  - Security scanning and validation
+  - Specialized checks for AI artifacts
+  - Measuring and improving AI contributions
 - 📈 Case studies of successful implementations
 
 ## 6. 💬 Q&A Session
