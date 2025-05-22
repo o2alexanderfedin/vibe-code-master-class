@@ -15,7 +15,7 @@ This project follows the GitFlow workflow for all changes:
 - `refactor/*`: Code refactoring
 - `test/*`: Test additions or changes
 
-### 🔄 Workflow Process
+### 🔄 Workflow Process (Solo Development)
 
 1. Create a new branch from `develop` with the appropriate prefix
    ```bash
@@ -33,9 +33,19 @@ This project follows the GitFlow workflow for all changes:
    git push -u origin feature/your-feature-name
    ```
 
-4. Create a pull request to merge into `develop`
+4. When feature is complete, merge directly into develop
+   ```bash
+   git checkout develop
+   git merge feature/your-feature-name
+   git push origin develop
+   ```
 
-5. After review and approval, the changes will be merged
+5. For releases, merge develop into main
+   ```bash
+   git checkout main
+   git merge develop
+   git push origin main
+   ```
 
 ## 💬 Commit Message Format
 

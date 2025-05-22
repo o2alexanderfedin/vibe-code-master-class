@@ -21,10 +21,11 @@ Always follow these commit message guidelines:
    - `docs`: Documentation
    - `meta`: Repository management
 
-3. Always follow GitFlow workflow:
+3. Always follow simplified GitFlow workflow for solo development:
    - Create feature branches from `develop`
    - Use proper prefixes: `feature/`, `fix/`, `docs/`, etc.
-   - Prepare pull requests to merge into `develop`
+   - Merge directly into `develop` when feature is complete
+   - Merge `develop` into `main` for releases
 
 ### 🛠️ Project Structure
 
